@@ -1,5 +1,6 @@
-from datetime import datetime
 from backend.entities.patient import Patient
+from datetime import datetime
+
 
 class Session:
     """
