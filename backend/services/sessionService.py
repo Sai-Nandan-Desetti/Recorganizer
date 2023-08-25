@@ -1,7 +1,6 @@
 from backend.entities.session import Session
 from backend.services.fileService import *
 import subprocess
-# from pathlib import Path
 
 
 class SessionService:
@@ -12,9 +11,7 @@ class SessionService:
         in the `Recorganizer` folder.        
     """
     def __init__(self, session: Session, base_path: str='./Recordings'):
-        self.session = session
-        # # Check that there are no other video files in the base folder
-        # assert len(video_recordings(base_path)) == 0, f'{base_path} contains some video files already! Ensure that they are placed in the correct location.'        
+        self.session = session        
         self.base_path = base_path
 
 
