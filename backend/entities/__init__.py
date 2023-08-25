@@ -1,2 +1,2 @@
-from patient import Patient
-from session import Session
+from backend.entities.patient import Patient
+from backend.entities.session import Session

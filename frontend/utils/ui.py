@@ -1,3 +1,9 @@
+"""
+- This module defines the User Interface of the app.
+- In this project, we use Streamlit.
+- But if you want to use any other framework, you need to implement the functions defined here.
+"""
+
 import streamlit as st
 
 
@@ -5,7 +11,7 @@ def set_title(title: str):
     st.title(title)
 
 
-def display_text(text: str):    
+def display_text(text: str):
     st.write(text)
 
 
@@ -38,3 +44,11 @@ def click(field: str) -> bool:
     returns if the button was clicked or not.
     """
     return st.button(field)
+
+
+def success(msg: str) -> None:
+    st.success(msg)
+
+
+def error(msg: str) -> None:
+    st.error(msg)
