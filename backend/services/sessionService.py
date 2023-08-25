@@ -6,6 +6,7 @@ import subprocess
 class SessionService:
     """
     A service class to handle a `Session`
+    
     - It needs the `base_path` of the video recordings.
         - If no path is provided, it's assumed that there's a folder named `Recordings` 
         in the `Recorganizer` folder.        
@@ -18,8 +19,7 @@ class SessionService:
     def start(self, vlc_path: str):
         """
         Opens the VLC app for recording.
-        - This is equivalent to typing in the shell:
-        `start <vlc_path>`
+            - This is equivalent to typing in the shell: `start <vlc_path>`
         """        
         subprocess.Popen(vlc_path)     
 
@@ -27,7 +27,7 @@ class SessionService:
     def set_destination_path(self):
         """
         Sets the destination folder for the recordings.
-        - Here's where you have to define the order of the directories along the path.
+            - Here's where you have to define the order of the directories along the path.
         """
         sub_dirs = [str(self.session.department), str(self.session.patient.id), str(self.session.date)]
         destination = construct_path(self.base_path, sub_dirs)

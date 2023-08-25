@@ -1,9 +1,9 @@
 class Patient:
     """
     A `Patient` is defined by
-    - ID
-    - Name
-    - (More attributes (eg. Place) can be added if necessary.)
+        - ID
+        - Name
+        - (More attributes (eg. Place) can be added if necessary.)
     """
 
     def __init__(self, id: str, name: str, **kwargs):

@@ -5,9 +5,10 @@ from datetime import datetime
 class Session:
     """
     A `Session` is defined by 
-    - A `Patient`
-    - Date of the session
-    - (More attributes (eg: the department examining the patient) can be added if necessary.)
+        - A `Patient`        
+        - The department examining the patient
+        - Date of the session
+        - (More attributes can be added if necessary.)
     """
     def __init__(self, patient: Patient, **kwargs):
         self.patient = patient
