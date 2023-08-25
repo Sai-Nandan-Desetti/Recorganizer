@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>recordingSession.py</title>
+  <link rel="stylesheet" href="..\..\pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>recordingSession.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>This module defines the interface between the frontend and the backend for recording a session.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">frontend.utils</span> <span class="kn">import</span> <span class="n">ui</span>
+<span class="kn">from</span> <span class="nn">backend.entities</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">backend.services.sessionService</span> <span class="kn">import</span> <span class="n">SessionService</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <pre><code>Creates a recording `Session` (for which a `Patient` is first created).
+
+1. Get the details of the patient.
+</code></pre>
+<ul>
+<li>By default, you need to provide ID and Name.</li>
+<li>Any other details you want to add, here&rsquo;s where you need to define those attributes.</li>
+<li>Display the relevant text prompt and collect the corresponding information.</li>
+<li>
+<p>Eg: If you want to add information about the whereabouts of the patient:
+       <code>p_place = get_text_input('Place')
+       patient = Patient(p_id, p_name, p_place)</code></p>
+<ol>
+<li>Get the details of the session.</li>
+<li>If you need the kind of info where the user must select from a list of options,
+ you can use <code>select_option()</code>.</li>
+<li>The template is <code>select_option(&lt;field_name&gt;, &lt;field_options&gt;)</code>.</li>
+<li>Eg: If you want to add a field for the type of video being recorded:
+   <code>field_name = 'Video category'
+   field_options = ['Surgery', 'Education', 'Testimonial']
+   selected_category = select_option(field_name, field_options)
+   session = Session(patient, department=selected_dept, category=selected_category)</code></li>
+</ol>
+</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">create_recording_session</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Session</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">p_id</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_text_input</span><span class="p">(</span><span class="s1">&#39;Patient ID&#39;</span><span class="p">)</span>
+    <span class="n">p_name</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_text_input</span><span class="p">(</span><span class="s1">&#39;Patient Name&#39;</span><span class="p">)</span>    
+    <span class="n">patient</span> <span class="o">=</span> <span class="n">Patient</span><span class="p">(</span><span class="n">p_id</span><span class="p">,</span> <span class="n">p_name</span><span class="p">)</span>
+        
+    <span class="n">departments</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Opthalmology&#39;</span><span class="p">,</span> <span class="s1">&#39;Urology&#39;</span><span class="p">,</span> <span class="s1">&#39;Cardiology&#39;</span><span class="p">]</span>
+    <span class="n">selected_dept</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">select_option</span><span class="p">(</span><span class="s1">&#39;Select Department&#39;</span><span class="p">,</span> <span class="n">departments</span><span class="p">)</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">(</span><span class="n">patient</span><span class="p">,</span> <span class="n">department</span><span class="o">=</span><span class="n">selected_dept</span><span class="p">)</span>    
+    <span class="k">return</span> <span class="n">session</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <pre><code>Uses the `SessionService` service class to start a `Session`
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">start_session</span><span class="p">(</span><span class="n">sessionService</span><span class="p">:</span> <span class="n">SessionService</span><span class="p">,</span> <span class="n">vlc_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SessionService</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sessionService</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">vlc_path</span><span class="p">)</span>
+        <span class="n">ui</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;VLC opened successfully!&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="n">ui</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">fe</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Please check the path.&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <pre><code>Uses `SessionService` to end a `Session`
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">end_session</span><span class="p">(</span><span class="n">sessionService</span><span class="p">:</span> <span class="n">SessionService</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">sessionService</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
