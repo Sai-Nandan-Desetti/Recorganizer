@@ -10,7 +10,7 @@ Installation
 
 Install streamlit
 ******************
-Recorganizer is built using [streamlit](https://streamlit.io/). So, in order to run the app, 
+Recorganizer is built using https://streamlit.io/. So, in order to run the app, 
 you need to first install streamlit.
 
 .. code-block:: bash
@@ -33,7 +33,7 @@ Run the app
 In the `Recorganizer` folder, you should see a file named `app.py`.
 
 - Open it and enter the path to your VLC media player.
-    - See the example in the documentation.
+    - See the example in the documentation: https://sai-nandan-desetti.github.io/Recorganizer/app.html#example
 - Save the file.
 - Execute the following command:
 
