@@ -13,7 +13,7 @@ You can watch a demo on how to use the app [here](https://clipchamp.com/watch/OO
 * Obviously, the video input shown in the demo is not going to be the kind doctors actually use.
 * I used a pre-existing `mp4` file for the demo.
 * Particularly, in the `Media` tab, I used the `Open File` option. A doctor would use something else-- `Open Capture Device` option, perhaps.
-* So long as the clips created with VLC during the session are in one of the supported formats, everything should be fine.
+* So long as the clips created with VLC during the session are in one of the [supported formats](https://sai-nandan-desetti.github.io/Recorganizer/backend.services.html#backend.services.fileService.video_recordings), everything should be fine.
 
 ### VLC Record
 * You must've noticed in the video that when you click on `Record` in VLC, absolutely nothing seems to happen. Well, nothing noticeable anyway.
