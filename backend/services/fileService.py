@@ -6,13 +6,13 @@ import glob
 import shutil
 
 
-def video_recordings(path: str, video_formats=['mp4']) -> list[str]:
+def video_recordings(path: str, video_formats=['mp4', 'mkv', 'avi', 'mpg']) -> list[str]:
     """
     Generates a list of video files present in the given path.
 
     :param path: path to the folder where you need to check for video recordings.
     :type path: str
-    :param video_formats: supported formats; default = ['mp4']
+    :param video_formats: supported formats; default = ['mp4', 'mkv', 'avi', 'mpg']
     :type video_formats: list[str], optional
 
     :return: the list of video files present in the given folder    
