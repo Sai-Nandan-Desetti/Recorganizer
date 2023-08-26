@@ -1,14 +1,10 @@
-"""
-The main file that runs the Recorganizer app.
-"""
-
 from frontend.utils import ui
 from frontend.menu import *
 
 
 class App:
     """
-    The Recorganizer App
+    The Recorganizer :class:`App`
     """
     def __init__(self):
         self._name = 'Recorganizer'
@@ -17,13 +13,10 @@ class App:
     
     def run(self, vlc_path: str):
         """
-        The function that runs the app.
+        The method that runs the app. The app is designed to be menu-driven. But there are only two options: Record Session and About.            
 
-        - This is a menu-driven app. But the menu has only two options:
-            - Record Session
-            - About
-        - So, you can either record a session or read about the app.
-            - There's nothing much to read about; so, please go and record something!
+        :param vlc_path: path to the VLC executable; the path must have forward slashes
+        :type vlc_path: str
         """
         ui.set_title(self._name)        
         menu_option = ui.select_menu_option('Menu', self._menu)

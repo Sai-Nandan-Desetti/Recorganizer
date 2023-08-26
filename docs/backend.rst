@@ -6,8 +6,6 @@ backend
    :undoc-members:
    :show-inheritance:
 
-
-Modules
 -----------
 
 .. toctree::

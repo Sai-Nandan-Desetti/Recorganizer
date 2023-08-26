@@ -44,17 +44,18 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Recorganizer</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="app.html">app</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="backend.html">backend</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="backend.html#contents">Contents</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="app.html">app</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="backend.html">backend</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">backend.entities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="backend.services.html">backend.services</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">frontend</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="frontend.html">frontend</a></li>
 </ul>
 </li>
 </ul>
@@ -73,7 +74,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">Recorganizer</a></li>
+          <li class="breadcrumb-item"><a href="documentation.html">Documentation</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Modules</a></li>
           <li class="breadcrumb-item"><a href="backend.html">backend</a></li>
       <li class="breadcrumb-item active">backend.entities</li>
       <li class="wy-breadcrumbs-aside">
@@ -87,39 +89,90 @@
              
   <section id="backend-entities">
 <h1>backend.entities<a class="headerlink" href="#backend-entities" title="Link to this heading"></a></h1>
-<hr class="docutils" id="module-backend.entities" />
+<dl class="simple" id="module-backend.entities">
+<dt>This module defines the two entities:</dt><dd><ul class="simple">
+<li><p>Patient</p></li>
+<li><p>Session</p></li>
+</ul>
+</dd>
+</dl>
+<hr class="docutils" />
 <section id="backend-entities-patient">
 <h2>backend.entities.patient<a class="headerlink" href="#backend-entities-patient" title="Link to this heading"></a></h2>
 <dl class="py class" id="module-backend.entities.patient">
 <dt class="sig sig-object py" id="backend.entities.patient.Patient">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">backend.entities.patient.</span></span><span class="sig-name descname"><span class="pre">Patient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/backend/entities/patient.html#Patient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#backend.entities.patient.Patient" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="simple">
-<dt>A <cite>Patient</cite> is defined by</dt><dd><ul class="simple">
-<li><p>ID</p></li>
-<li><p>Name</p></li>
-<li><p>(More attributes (eg. Place) can be added if necessary.)</p></li>
+<dl class="field-list simple">
+<dt class="field-odd">Class<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>Patient</cite> defines a patient.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – the patient’s ID</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – the patient’s name</p></li>
 </ul>
 </dd>
 </dl>
+<ul class="simple">
+<li><p>More attributes can be added if necessary.</p></li>
+<li><dl class="simple">
+<dt>Example:</dt><dd><ul>
+<li><dl class="simple">
+<dt>A test run that creates and displays two patients:</dt><dd><ol class="arabic simple">
+<li><p>Patient with only ID and Name</p></li>
+<li><p>Patient with ID, Name, and Place.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">patient</span> <span class="o">=</span> <span class="n">Patient</span><span class="p">(</span><span class="s1">&#39;AX314&#39;</span><span class="p">,</span> <span class="s1">&#39;ABC&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">patient</span><span class="p">))</span>
+    <span class="n">patient</span> <span class="o">=</span> <span class="n">Patient</span><span class="p">(</span><span class="s1">&#39;GF342&#39;</span><span class="p">,</span> <span class="s1">&#39;POW&#39;</span><span class="p">,</span> <span class="n">place</span><span class="o">=</span><span class="s1">&#39;X-122&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">patient</span><span class="p">))</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
+<hr class="docutils" />
 <section id="backend-entities-session">
 <h2>backend.entities.session<a class="headerlink" href="#backend-entities-session" title="Link to this heading"></a></h2>
 <dl class="py class" id="module-backend.entities.session">
 <dt class="sig sig-object py" id="backend.entities.session.Session">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">backend.entities.session.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#backend.entities.patient.Patient" title="backend.entities.patient.Patient"><span class="pre">Patient</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/backend/entities/session.html#Session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#backend.entities.session.Session" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="simple">
-<dt>A <cite>Session</cite> is defined by </dt><dd><ul class="simple">
-<li><p>A <cite>Patient</cite></p></li>
-<li><p>The department examining the patient</p></li>
-<li><p>Date of the session</p></li>
-<li><p>(More attributes can be added if necessary.)</p></li>
+<dl class="field-list simple">
+<dt class="field-odd">Class<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>Session</cite> defines a session.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>patient</strong> – a <cite>Patient</cite></p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>The date of the session is automatically created.</p></li>
+<li><p>More attributes can be added if necessary.</p></li>
+<li><dl class="simple">
+<dt>Example:</dt><dd><ul>
+<li><p>A test run that first creates a <cite>Patient</cite> (using ID and Name) and then a <cite>Session</cite> using today’s date.</p></li>
 </ul>
 </dd>
 </dl>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">patient</span> <span class="o">=</span> <span class="n">Patient</span><span class="p">(</span><span class="s1">&#39;AX314&#39;</span><span class="p">,</span> <span class="s1">&#39;ABC&#39;</span><span class="p">)</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">(</span><span class="n">patient</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">session</span><span class="p">))</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

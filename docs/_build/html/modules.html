@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recorganizer &mdash; Recorganizer 1.1 documentation</title>
+  <title>Modules &mdash; Recorganizer 1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="app" href="app.html" />
-    <link rel="prev" title="Welcome to Recorganizer’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Documentation" href="documentation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,10 +44,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Recorganizer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="app.html">app</a></li>
-<li class="toctree-l2"><a class="reference internal" href="backend.html">backend</a></li>
-<li class="toctree-l2"><a class="reference internal" href="frontend.html">frontend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.html">app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html">backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">frontend</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -66,7 +70,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Recorganizer</li>
+          <li class="breadcrumb-item"><a href="documentation.html">Documentation</a></li>
+      <li class="breadcrumb-item active">Modules</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -76,8 +81,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="recorganizer">
-<h1>Recorganizer<a class="headerlink" href="#recorganizer" title="Link to this heading"></a></h1>
+  <section id="modules">
+<h1>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="app.html">app</a><ul>
@@ -85,18 +90,30 @@
 <li class="toctree-l3"><a class="reference internal" href="app.html#app.App.run"><code class="docutils literal notranslate"><span class="pre">App.run()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#example">Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="backend.html">backend</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="backend.html#modules">Modules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="backend.entities.html">backend.entities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="backend.entities.html#backend-entities-patient">backend.entities.patient</a></li>
-<li class="toctree-l4"><a class="reference internal" href="backend.entities.html#backend-entities-session">backend.entities.session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backend.entities.html">backend.entities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="backend.entities.html#backend-entities-patient">backend.entities.patient</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="backend.entities.html#backend.entities.patient.Patient"><code class="docutils literal notranslate"><span class="pre">Patient</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="backend.services.html">backend.services</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="backend.services.html#backend-services-fileservice">backend.services.fileService</a></li>
-<li class="toctree-l4"><a class="reference internal" href="backend.services.html#backend-services-sessionservice">backend.services.sessionService</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.entities.html#backend-entities-session">backend.entities.session</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="backend.entities.html#backend.entities.session.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="backend.services.html">backend.services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="backend.services.html#backend-services-fileservice">backend.services.fileService</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="backend.services.html#backend.services.fileService.construct_path"><code class="docutils literal notranslate"><span class="pre">construct_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.services.html#backend.services.fileService.organize_recorded_files"><code class="docutils literal notranslate"><span class="pre">organize_recorded_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.services.html#backend.services.fileService.video_recordings"><code class="docutils literal notranslate"><span class="pre">video_recordings()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.services.html#backend-services-sessionservice">backend.services.sessionService</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="backend.services.html#backend.services.sessionService.SessionService"><code class="docutils literal notranslate"><span class="pre">SessionService</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -104,14 +121,29 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="frontend.html">frontend</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="frontend.html#modules">Modules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="frontend.menu.html">frontend.menu</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="frontend.menu.html#frontend-menu-about">frontend.menu.about</a></li>
-<li class="toctree-l4"><a class="reference internal" href="frontend.menu.html#frontend-menu-recordingsession">frontend.menu.recordingSession</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontend.menu.html">frontend.menu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="frontend.menu.html#frontend-menu-about">frontend.menu.about</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="frontend.menu.html#frontend.menu.about.show_about_page"><code class="docutils literal notranslate"><span class="pre">show_about_page()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="frontend.utils.html">frontend.utils</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html#frontend-utils-ui">frontend.utils.ui</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.menu.html#frontend-menu-recordingsession">frontend.menu.recordingSession</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="frontend.menu.html#frontend.menu.recordingSession.create_recording_session"><code class="docutils literal notranslate"><span class="pre">create_recording_session()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="frontend.menu.html#frontend.menu.recordingSession.end_session"><code class="docutils literal notranslate"><span class="pre">end_session()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="frontend.menu.html#frontend.menu.recordingSession.start_session"><code class="docutils literal notranslate"><span class="pre">start_session()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="frontend.utils.html">frontend.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="frontend.utils.html#frontend-utils-ui">frontend.utils.ui</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html#frontend.utils.ui.click"><code class="docutils literal notranslate"><span class="pre">click()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html#frontend.utils.ui.display_text"><code class="docutils literal notranslate"><span class="pre">display_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html#frontend.utils.ui.error"><code class="docutils literal notranslate"><span class="pre">error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html#frontend.utils.ui.get_text_input"><code class="docutils literal notranslate"><span class="pre">get_text_input()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html#frontend.utils.ui.select_menu_option"><code class="docutils literal notranslate"><span class="pre">select_menu_option()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html#frontend.utils.ui.select_option"><code class="docutils literal notranslate"><span class="pre">select_option()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html#frontend.utils.ui.set_title"><code class="docutils literal notranslate"><span class="pre">set_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html#frontend.utils.ui.success"><code class="docutils literal notranslate"><span class="pre">success()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -126,7 +158,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Recorganizer’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="documentation.html" class="btn btn-neutral float-left" title="Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="app.html" class="btn btn-neutral float-right" title="app" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

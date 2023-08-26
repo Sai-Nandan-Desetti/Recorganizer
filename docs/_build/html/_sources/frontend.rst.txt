@@ -1,14 +1,11 @@
 frontend
 ================
 
-
 .. automodule:: frontend
    :members:
    :undoc-members:
    :show-inheritance:
 
-
-Modules
 -----------
 
 .. toctree::

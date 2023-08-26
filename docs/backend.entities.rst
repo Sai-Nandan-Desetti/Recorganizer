@@ -1,12 +1,10 @@
 backend.entities
 ========================
 
-
 .. automodule:: backend.entities
    :members:
    :undoc-members:
    :show-inheritance:
-
 
 ----------
 
@@ -17,6 +15,8 @@ backend.entities.patient
    :members:
    :undoc-members:
    :show-inheritance:
+
+-----------
 
 backend.entities.session
 -------------------------------

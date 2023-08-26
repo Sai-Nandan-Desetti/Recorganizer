@@ -41,7 +41,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Recorganizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../documentation.html">Documentation</a></li>
 </ul>
 
         </div>
@@ -78,23 +79,33 @@
 <a class="viewcode-back" href="../../../backend.services.html#backend.services.sessionService.SessionService">[docs]</a>
 <span class="k">class</span> <span class="nc">SessionService</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A service class to handle a `Session`</span>
+<span class="sd">    :class: `SessionService` - A service class to handle a `Session`</span>
 <span class="sd">    </span>
-<span class="sd">    - It needs the `base_path` of the video recordings.</span>
-<span class="sd">        - If no path is provided, it&#39;s assumed that there&#39;s a folder named `Recordings` </span>
-<span class="sd">        in the `Recorganizer` folder.        </span>
+<span class="sd">    :param session: a `Session`</span>
+<span class="sd">    :type session: :class:`Session`</span>
+<span class="sd">    :param base_path: path to the source folder where the recorded snippets are stored during the session; defaults to &#39;./Recordings&#39;</span>
+<span class="sd">    :type base_path: str             </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">base_path</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;./Recordings&#39;</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">=</span> <span class="n">base_path</span>
 
 
+<div class="viewcode-block" id="SessionService.get_source_folder">
+<a class="viewcode-back" href="../../../backend.services.html#backend.services.sessionService.SessionService.get_source_folder">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_source_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span></div>
+
+
+    
 <div class="viewcode-block" id="SessionService.start">
 <a class="viewcode-back" href="../../../backend.services.html#backend.services.sessionService.SessionService.start">[docs]</a>
     <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vlc_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Opens the VLC app for recording.</span>
-<span class="sd">            - This is equivalent to typing in the shell: `start &lt;vlc_path&gt;`</span>
+<span class="sd">        Starts the VLC media player.</span>
+<span class="sd">        </span>
+<span class="sd">        :param vlc_path: path to the VLC executable</span>
+<span class="sd">        :type vlc_path: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>        
         <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">vlc_path</span><span class="p">)</span>     </div>
 
@@ -102,10 +113,12 @@
 
 <div class="viewcode-block" id="SessionService.set_destination_path">
 <a class="viewcode-back" href="../../../backend.services.html#backend.services.sessionService.SessionService.set_destination_path">[docs]</a>
-    <span class="k">def</span> <span class="nf">set_destination_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">set_destination_path</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Sets the destination folder for the recordings.</span>
-<span class="sd">            - Here&#39;s where you have to define the order of the directories along the path.</span>
+<span class="sd">        Sets the destination folder for the recordings. You have to define your desired order of the directories in this method.</span>
+
+<span class="sd">        :return: path to the destination folder</span>
+<span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">sub_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">department</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">patient</span><span class="o">.</span><span class="n">id</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">date</span><span class="p">)]</span>
         <span class="n">destination</span> <span class="o">=</span> <span class="n">construct_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_path</span><span class="p">,</span> <span class="n">sub_dirs</span><span class="p">)</span>
@@ -115,12 +128,15 @@
         
 <div class="viewcode-block" id="SessionService.end">
 <a class="viewcode-back" href="../../../backend.services.html#backend.services.sessionService.SessionService.end">[docs]</a>
-    <span class="k">def</span> <span class="nf">end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Transfers the recordings from the `base_path` to the intended destination.           </span>
+<span class="sd">        Organizes the recordings as desired in the intended destination.</span>
+
+<span class="sd">        :return: the number of files successfully organized</span>
+<span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">src</span><span class="p">,</span> <span class="n">dest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_destination_path</span><span class="p">()</span>
-        <span class="n">organize_recorded_files</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span>               </div>
+        <span class="k">return</span> <span class="n">organize_recorded_files</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

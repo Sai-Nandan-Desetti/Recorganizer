@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="frontend.utils package" href="frontend.utils.html" />
+    <link rel="next" title="frontend.utils" href="frontend.utils.html" />
     <link rel="prev" title="frontend" href="frontend.html" /> 
 </head>
 
@@ -44,13 +44,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Recorganizer</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="app.html">app</a></li>
-<li class="toctree-l2"><a class="reference internal" href="backend.html">backend</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="frontend.html">frontend</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="frontend.html#contents">Contents</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="app.html">app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html">backend</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="frontend.html">frontend</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">frontend.menu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html">frontend.utils package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="frontend.utils.html">frontend.utils</a></li>
 </ul>
 </li>
 </ul>
@@ -73,7 +74,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">Recorganizer</a></li>
+          <li class="breadcrumb-item"><a href="documentation.html">Documentation</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Modules</a></li>
           <li class="breadcrumb-item"><a href="frontend.html">frontend</a></li>
       <li class="breadcrumb-item active">frontend.menu</li>
       <li class="wy-breadcrumbs-aside">
@@ -88,9 +90,13 @@
   <section id="frontend-menu">
 <h1>frontend.menu<a class="headerlink" href="#frontend-menu" title="Link to this heading"></a></h1>
 <p id="module-frontend.menu">This module defines the menu for the app.
-There are two options:
-- Record Session
-- About</p>
+There are two options:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Record Session</p></li>
+<li><p>About</p></li>
+</ul>
+</div></blockquote>
 <hr class="docutils" />
 <section id="frontend-menu-about">
 <h2>frontend.menu.about<a class="headerlink" href="#frontend-menu-about" title="Link to this heading"></a></h2>
@@ -101,6 +107,7 @@ There are two options:
 <dd></dd></dl>
 
 </section>
+<hr class="docutils" />
 <section id="frontend-menu-recordingsession">
 <h2>frontend.menu.recordingSession<a class="headerlink" href="#frontend-menu-recordingsession" title="Link to this heading"></a></h2>
 <p id="module-frontend.menu.recordingSession">This module defines the interface between the frontend and the backend for recording a session.</p>
@@ -108,40 +115,34 @@ There are two options:
 <dt class="sig sig-object py" id="frontend.menu.recordingSession.create_recording_session">
 <span class="sig-prename descclassname"><span class="pre">frontend.menu.recordingSession.</span></span><span class="sig-name descname"><span class="pre">create_recording_session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="backend.entities.html#backend.entities.session.Session" title="backend.entities.session.Session"><span class="pre">Session</span></a></span></span><a class="reference internal" href="_modules/frontend/menu/recordingSession.html#create_recording_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#frontend.menu.recordingSession.create_recording_session" title="Link to this definition"></a></dt>
 <dd><p>Creates a recording <cite>Session</cite> (for which a <cite>Patient</cite> is first created).</p>
-<ol class="arabic simple">
-<li><dl class="simple">
+<ol class="arabic">
+<li><dl>
 <dt>Get the details of the patient.</dt><dd><ul class="simple">
 <li><p>By default, you need to provide ID and Name.</p></li>
 <li><p>Any other details you want to add, here’s where you need to define those attributes.</p></li>
 <li><p>Display the relevant text prompt and collect the corresponding information.</p></li>
-<li><dl class="simple">
-<dt>Eg: If you want to add information about the whereabouts of the patient:</dt><dd><p>`
-p_place = get_text_input(‘Place’)
-patient = Patient(p_id, p_name, p_place)
-`</p>
-</dd>
-</dl>
-</li>
+<li><p>Eg. If you want to add information about the whereabouts of the patient:</p></li>
 </ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p_place</span> <span class="o">=</span> <span class="n">get_text_input</span><span class="p">(</span><span class="s1">&#39;Place&#39;</span><span class="p">)</span>
+<span class="n">patient</span> <span class="o">=</span> <span class="n">Patient</span><span class="p">(</span><span class="n">p_id</span><span class="p">,</span> <span class="n">p_name</span><span class="p">,</span> <span class="n">p_place</span><span class="p">)</span>            
+</pre></div>
+</div>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt>Get the details of the session.</dt><dd><ul class="simple">
 <li><p>If you need the kind of info where the user must select from a list of options,
 you can use <cite>select_option()</cite>.</p></li>
 <li><p>The template is <cite>select_option(&lt;field_name&gt;, &lt;field_options&gt;)</cite>.</p></li>
-<li><dl class="simple">
-<dt>Eg: If you want to add a field for the type of video being recorded:</dt><dd><p>`
-field_name = ‘Video category’
-field_options = [‘Surgery’, ‘Education’, ‘Testimonial’]
-selected_category = select_option(field_name, field_options)
-session = Session(patient, department=selected_dept, category=selected_category)
-`</p>
-</dd>
-</dl>
-</li>
+<li><p>Eg. If you want to add a field for the type of video being recorded:</p></li>
 </ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">field_name</span> <span class="o">=</span> <span class="s1">&#39;Video category&#39;</span>
+<span class="n">field_options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Surgery&#39;</span><span class="p">,</span> <span class="s1">&#39;Education&#39;</span><span class="p">,</span> <span class="s1">&#39;Testimonial&#39;</span><span class="p">]</span>
+<span class="n">selected_category</span> <span class="o">=</span> <span class="n">select_option</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">field_options</span><span class="p">)</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">(</span><span class="n">patient</span><span class="p">,</span> <span class="n">department</span><span class="o">=</span><span class="n">selected_dept</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">selected_category</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </li>
@@ -151,13 +152,26 @@ session = Session(patient, department=selected_dept, category=selected_category)
 <dl class="py function">
 <dt class="sig sig-object py" id="frontend.menu.recordingSession.end_session">
 <span class="sig-prename descclassname"><span class="pre">frontend.menu.recordingSession.</span></span><span class="sig-name descname"><span class="pre">end_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sessionService</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="backend.services.html#backend.services.sessionService.SessionService" title="backend.services.sessionService.SessionService"><span class="pre">SessionService</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/frontend/menu/recordingSession.html#end_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#frontend.menu.recordingSession.end_session" title="Link to this definition"></a></dt>
-<dd><p>Uses <cite>SessionService</cite> to end a <cite>Session</cite></p>
+<dd><p>Ends a <cite>Session</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sessionService</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">SessionService</span></code>) – a <cite>SessionService</cite></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="frontend.menu.recordingSession.start_session">
-<span class="sig-prename descclassname"><span class="pre">frontend.menu.recordingSession.</span></span><span class="sig-name descname"><span class="pre">start_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sessionService</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="backend.services.html#backend.services.sessionService.SessionService" title="backend.services.sessionService.SessionService"><span class="pre">SessionService</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vlc_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="backend.services.html#backend.services.sessionService.SessionService" title="backend.services.sessionService.SessionService"><span class="pre">SessionService</span></a></span></span><a class="reference internal" href="_modules/frontend/menu/recordingSession.html#start_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#frontend.menu.recordingSession.start_session" title="Link to this definition"></a></dt>
-<dd><p>Uses the <cite>SessionService</cite> service class to start a <cite>Session</cite></p>
+<span class="sig-prename descclassname"><span class="pre">frontend.menu.recordingSession.</span></span><span class="sig-name descname"><span class="pre">start_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sessionService</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="backend.services.html#backend.services.sessionService.SessionService" title="backend.services.sessionService.SessionService"><span class="pre">SessionService</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vlc_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/frontend/menu/recordingSession.html#start_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#frontend.menu.recordingSession.start_session" title="Link to this definition"></a></dt>
+<dd><p>Starts a <cite>Session</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sessionService</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">SessionService</span></code>) – a <cite>SessionService</cite></p></li>
+<li><p><strong>vlc_path</strong> (<em>str</em>) – path to the VLC player executable</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -168,7 +182,7 @@ session = Session(patient, department=selected_dept, category=selected_category)
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="frontend.html" class="btn btn-neutral float-left" title="frontend" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="frontend.utils.html" class="btn btn-neutral float-right" title="frontend.utils package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="frontend.utils.html" class="btn btn-neutral float-right" title="frontend.utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -15,23 +15,26 @@ def create_recording_session() -> Session:
         - By default, you need to provide ID and Name.
         - Any other details you want to add, here's where you need to define those attributes.
         - Display the relevant text prompt and collect the corresponding information.
-        - Eg: If you want to add information about the whereabouts of the patient:
-            `
+        - Eg. If you want to add information about the whereabouts of the patient:
+            
+        .. code-block:: python
+            
             p_place = get_text_input('Place')
-            patient = Patient(p_id, p_name, p_place)
-            `
+            patient = Patient(p_id, p_name, p_place)            
 
     2. Get the details of the session.
         - If you need the kind of info where the user must select from a list of options,
           you can use `select_option()`.
         - The template is `select_option(<field_name>, <field_options>)`.
-        - Eg: If you want to add a field for the type of video being recorded:
-            `
+        - Eg. If you want to add a field for the type of video being recorded:
+            
+        .. code-block:: python
+
             field_name = 'Video category'
             field_options = ['Surgery', 'Education', 'Testimonial']
             selected_category = select_option(field_name, field_options)
             session = Session(patient, department=selected_dept, category=selected_category)
-            `
+            
     """
     p_id = ui.get_text_input('Patient ID')
     p_name = ui.get_text_input('Patient Name')    
@@ -43,19 +46,34 @@ def create_recording_session() -> Session:
     return session
 
 
-def start_session(sessionService: SessionService, vlc_path: str) -> SessionService:
+def start_session(sessionService: SessionService, vlc_path: str):
     """
-    Uses the `SessionService` service class to start a `Session`
+    Starts a `Session`
+
+    :param sessionService: a `SessionService`
+    :type sessionService: :class:`SessionService`
+    :param vlc_path: path to the VLC player executable
+    :type vlc_path: str
     """    
     try:
         sessionService.start(vlc_path)
         ui.success('VLC opened successfully!')
     except FileNotFoundError as fe:
-        ui.error(str(fe) + '\nPlease check the path.')    
+        ui.error(str(fe) + '\nPlease check the path.')
 
 
 def end_session(sessionService: SessionService):
     """
-    Uses `SessionService` to end a `Session`
+    Ends a `Session`
+
+    :param sessionService: a `SessionService`
+    :type sessionService: :class:`SessionService`
     """
-    sessionService.end()
+    try:
+        n = sessionService.end()
+        if n > 0:
+            ui.success(f'Successfully organized {n} files from {sessionService.get_source_folder()}')
+        else:
+            ui.error(f'No files found in {sessionService.get_source_folder()}')
+    except Exception as ex:
+        ui.error('Error in moving the files\n' + str(ex))

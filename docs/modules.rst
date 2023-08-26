@@ -1,4 +1,4 @@
-Recorganizer
+Modules
 ============
 
 .. toctree::

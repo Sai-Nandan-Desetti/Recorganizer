@@ -39,8 +39,12 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -66,11 +70,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for app</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">The main file that runs the Recorganizer app.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">from</span> <span class="nn">frontend.utils</span> <span class="kn">import</span> <span class="n">ui</span>
+<span></span><span class="kn">from</span> <span class="nn">frontend.utils</span> <span class="kn">import</span> <span class="n">ui</span>
 <span class="kn">from</span> <span class="nn">frontend.menu</span> <span class="kn">import</span> <span class="o">*</span>
 
 
@@ -78,7 +78,7 @@
 <a class="viewcode-back" href="../app.html#app.App">[docs]</a>
 <span class="k">class</span> <span class="nc">App</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The Recorganizer App</span>
+<span class="sd">    The Recorganizer :class:`App`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;Recorganizer&#39;</span>
@@ -89,13 +89,10 @@
 <a class="viewcode-back" href="../app.html#app.App.run">[docs]</a>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vlc_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The function that runs the app.</span>
+<span class="sd">        The method that runs the app. The app is designed to be menu-driven. But there are only two options: Record Session and About.            </span>
 
-<span class="sd">        - This is a menu-driven app. But the menu has only two options:</span>
-<span class="sd">            - Record Session</span>
-<span class="sd">            - About</span>
-<span class="sd">        - So, you can either record a session or read about the app.</span>
-<span class="sd">            - There&#39;s nothing much to read about; so, please go and record something!</span>
+<span class="sd">        :param vlc_path: path to the VLC executable; the path must have forward slashes</span>
+<span class="sd">        :type vlc_path: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ui</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span>        
         <span class="n">menu_option</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">select_menu_option</span><span class="p">(</span><span class="s1">&#39;Menu&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_menu</span><span class="p">)</span>

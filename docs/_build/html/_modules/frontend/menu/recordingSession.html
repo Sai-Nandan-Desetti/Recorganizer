@@ -39,8 +39,12 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../documentation.html">Documentation</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -85,23 +89,26 @@
 <span class="sd">        - By default, you need to provide ID and Name.</span>
 <span class="sd">        - Any other details you want to add, here&#39;s where you need to define those attributes.</span>
 <span class="sd">        - Display the relevant text prompt and collect the corresponding information.</span>
-<span class="sd">        - Eg: If you want to add information about the whereabouts of the patient:</span>
-<span class="sd">            `</span>
+<span class="sd">        - Eg. If you want to add information about the whereabouts of the patient:</span>
+<span class="sd">            </span>
+<span class="sd">        .. code-block:: python</span>
+<span class="sd">            </span>
 <span class="sd">            p_place = get_text_input(&#39;Place&#39;)</span>
-<span class="sd">            patient = Patient(p_id, p_name, p_place)</span>
-<span class="sd">            `</span>
+<span class="sd">            patient = Patient(p_id, p_name, p_place)            </span>
 
 <span class="sd">    2. Get the details of the session.</span>
 <span class="sd">        - If you need the kind of info where the user must select from a list of options,</span>
 <span class="sd">          you can use `select_option()`.</span>
 <span class="sd">        - The template is `select_option(&lt;field_name&gt;, &lt;field_options&gt;)`.</span>
-<span class="sd">        - Eg: If you want to add a field for the type of video being recorded:</span>
-<span class="sd">            `</span>
+<span class="sd">        - Eg. If you want to add a field for the type of video being recorded:</span>
+<span class="sd">            </span>
+<span class="sd">        .. code-block:: python</span>
+
 <span class="sd">            field_name = &#39;Video category&#39;</span>
 <span class="sd">            field_options = [&#39;Surgery&#39;, &#39;Education&#39;, &#39;Testimonial&#39;]</span>
 <span class="sd">            selected_category = select_option(field_name, field_options)</span>
 <span class="sd">            session = Session(patient, department=selected_dept, category=selected_category)</span>
-<span class="sd">            `</span>
+<span class="sd">            </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">p_id</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_text_input</span><span class="p">(</span><span class="s1">&#39;Patient ID&#39;</span><span class="p">)</span>
     <span class="n">p_name</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_text_input</span><span class="p">(</span><span class="s1">&#39;Patient Name&#39;</span><span class="p">)</span>    
@@ -116,15 +123,20 @@
 
 <div class="viewcode-block" id="start_session">
 <a class="viewcode-back" href="../../../frontend.menu.html#frontend.menu.recordingSession.start_session">[docs]</a>
-<span class="k">def</span> <span class="nf">start_session</span><span class="p">(</span><span class="n">sessionService</span><span class="p">:</span> <span class="n">SessionService</span><span class="p">,</span> <span class="n">vlc_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SessionService</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">start_session</span><span class="p">(</span><span class="n">sessionService</span><span class="p">:</span> <span class="n">SessionService</span><span class="p">,</span> <span class="n">vlc_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Uses the `SessionService` service class to start a `Session`</span>
+<span class="sd">    Starts a `Session`</span>
+
+<span class="sd">    :param sessionService: a `SessionService`</span>
+<span class="sd">    :type sessionService: :class:`SessionService`</span>
+<span class="sd">    :param vlc_path: path to the VLC player executable</span>
+<span class="sd">    :type vlc_path: str</span>
 <span class="sd">    &quot;&quot;&quot;</span>    
     <span class="k">try</span><span class="p">:</span>
         <span class="n">sessionService</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">vlc_path</span><span class="p">)</span>
         <span class="n">ui</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;VLC opened successfully!&#39;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
-        <span class="n">ui</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">fe</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Please check the path.&#39;</span><span class="p">)</span>    </div>
+        <span class="n">ui</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">fe</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Please check the path.&#39;</span><span class="p">)</span></div>
 
 
 
@@ -132,9 +144,19 @@
 <a class="viewcode-back" href="../../../frontend.menu.html#frontend.menu.recordingSession.end_session">[docs]</a>
 <span class="k">def</span> <span class="nf">end_session</span><span class="p">(</span><span class="n">sessionService</span><span class="p">:</span> <span class="n">SessionService</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Uses `SessionService` to end a `Session`</span>
+<span class="sd">    Ends a `Session`</span>
+
+<span class="sd">    :param sessionService: a `SessionService`</span>
+<span class="sd">    :type sessionService: :class:`SessionService`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">sessionService</span><span class="o">.</span><span class="n">end</span><span class="p">()</span></div>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">sessionService</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ui</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Successfully organized </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1"> files from </span><span class="si">{</span><span class="n">sessionService</span><span class="o">.</span><span class="n">get_source_folder</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ui</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No files found in </span><span class="si">{</span><span class="n">sessionService</span><span class="o">.</span><span class="n">get_source_folder</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+        <span class="n">ui</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error in moving the files</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span></div>
 
 </pre></div>
 

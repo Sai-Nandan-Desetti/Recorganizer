@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="backend" href="backend.html" />
-    <link rel="prev" title="Recorganizer" href="modules.html" /> 
+    <link rel="prev" title="Modules" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,16 +44,18 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Recorganizer</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">app</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#app.App"><code class="docutils literal notranslate"><span class="pre">App</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#app.App.run"><code class="docutils literal notranslate"><span class="pre">App.run()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">Modules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">app</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.App"><code class="docutils literal notranslate"><span class="pre">App</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html">backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">frontend</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="backend.html">backend</a></li>
-<li class="toctree-l2"><a class="reference internal" href="frontend.html">frontend</a></li>
 </ul>
 </li>
 </ul>
@@ -72,7 +74,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">Recorganizer</a></li>
+          <li class="breadcrumb-item"><a href="documentation.html">Documentation</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Modules</a></li>
       <li class="breadcrumb-item active">app</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/app.rst.txt" rel="nofollow"> View page source</a>
@@ -85,44 +88,42 @@
              
   <section id="app">
 <h1>app<a class="headerlink" href="#app" title="Link to this heading"></a></h1>
-<p id="module-app">The main file that runs the Recorganizer app.</p>
-<dl class="py class">
+<dl class="py class" id="module-app">
 <dt class="sig sig-object py" id="app.App">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">App</span></span><a class="reference internal" href="_modules/app.html#App"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.App" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>The Recorganizer App</p>
+<p>The Recorganizer <a class="reference internal" href="#app.App" title="app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="app.App.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vlc_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app.html#App.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.App.run" title="Link to this definition"></a></dt>
-<dd><p>The function that runs the app.</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>This is a menu-driven app. But the menu has only two options:</dt><dd><ul>
-<li><p>Record Session</p></li>
-<li><p>About</p></li>
-</ul>
+<dd><p>The method that runs the app. The app is designed to be menu-driven. But there are only two options: Record Session and About.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vlc_path</strong> (<em>str</em>) – path to the VLC executable; the path must have forward slashes</p>
 </dd>
 </dl>
-</li>
-<li><dl class="simple">
-<dt>So, you can either record a session or read about the app.</dt><dd><ul>
-<li><p>There’s nothing much to read about; so, please go and record something!</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
 </dd></dl>
 
 </dd></dl>
 
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>
+    <span class="c1"># Enter the path to your VLC player here.</span>
+    <span class="c1"># Remember to keep forward slashes.</span>
+    <span class="n">vlc_path</span> <span class="o">=</span> <span class="s1">&#39;D:/Apps/VLC/vlc.exe&#39;</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">vlc_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modules.html" class="btn btn-neutral float-left" title="Recorganizer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="backend.html" class="btn btn-neutral float-right" title="backend" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

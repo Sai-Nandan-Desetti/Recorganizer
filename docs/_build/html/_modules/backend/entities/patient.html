@@ -41,7 +41,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Recorganizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../documentation.html">Documentation</a></li>
 </ul>
 
         </div>
@@ -73,10 +74,26 @@
 <a class="viewcode-back" href="../../../backend.entities.html#backend.entities.patient.Patient">[docs]</a>
 <span></span><span class="k">class</span> <span class="nc">Patient</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A `Patient` is defined by</span>
-<span class="sd">        - ID</span>
-<span class="sd">        - Name</span>
-<span class="sd">        - (More attributes (eg. Place) can be added if necessary.)</span>
+<span class="sd">    :class: `Patient` defines a patient.</span>
+<span class="sd">        </span>
+<span class="sd">    :param id: the patient&#39;s ID</span>
+<span class="sd">    :type id: str</span>
+<span class="sd">    :param name: the patient&#39;s name</span>
+<span class="sd">    :type name: str</span>
+
+<span class="sd">    - More attributes can be added if necessary.</span>
+<span class="sd">    - Example:</span>
+<span class="sd">        - A test run that creates and displays two patients:</span>
+<span class="sd">            1. Patient with only ID and Name</span>
+<span class="sd">            2. Patient with ID, Name, and Place.</span>
+<span class="sd">    </span>
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        if __name__ == &#39;__main__&#39;:</span>
+<span class="sd">            patient = Patient(&#39;AX314&#39;, &#39;ABC&#39;)</span>
+<span class="sd">            print(repr(patient))</span>
+<span class="sd">            patient = Patient(&#39;GF342&#39;, &#39;POW&#39;, place=&#39;X-122&#39;)</span>
+<span class="sd">            print(repr(patient))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -85,7 +102,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="c1"># add attributes to class based on kwargs</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A string representation for the :class: `Patient`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s1">&#39;Patient(&#39;</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>        </div>
+
 
 
 

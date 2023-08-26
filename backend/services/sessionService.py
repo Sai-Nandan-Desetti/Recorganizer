@@ -5,38 +5,50 @@ import subprocess
 
 class SessionService:
     """
-    A service class to handle a `Session`
+    :class: `SessionService` - A service class to handle a `Session`
     
-    - It needs the `base_path` of the video recordings.
-        - If no path is provided, it's assumed that there's a folder named `Recordings` 
-        in the `Recorganizer` folder.        
+    :param session: a `Session`
+    :type session: :class:`Session`
+    :param base_path: path to the source folder where the recorded snippets are stored during the session; defaults to './Recordings'
+    :type base_path: str             
     """
     def __init__(self, session: Session, base_path: str='./Recordings'):
-        self.session = session        
+        self.session = session
         self.base_path = base_path
 
 
+    def get_source_folder(self) -> str:
+        return self.base_path
+
+    
     def start(self, vlc_path: str):
         """
-        Opens the VLC app for recording.
-            - This is equivalent to typing in the shell: `start <vlc_path>`
+        Starts the VLC media player.
+        
+        :param vlc_path: path to the VLC executable
+        :type vlc_path: str
         """        
         subprocess.Popen(vlc_path)     
 
 
-    def set_destination_path(self):
+    def set_destination_path(self) -> str:
         """
-        Sets the destination folder for the recordings.
-            - Here's where you have to define the order of the directories along the path.
+        Sets the destination folder for the recordings. You have to define your desired order of the directories in this method.
+
+        :return: path to the destination folder
+        :rtype: str
         """
         sub_dirs = [str(self.session.department), str(self.session.patient.id), str(self.session.date)]
         destination = construct_path(self.base_path, sub_dirs)
         return destination
     
         
-    def end(self):
+    def end(self) -> int:
         """
-        Transfers the recordings from the `base_path` to the intended destination.           
+        Organizes the recordings as desired in the intended destination.
+
+        :return: the number of files successfully organized
+        :rtype: int
         """
         src, dest = self.base_path, self.set_destination_path()
-        organize_recorded_files(src, dest)               
+        return organize_recorded_files(src, dest)

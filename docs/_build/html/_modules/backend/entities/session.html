@@ -41,7 +41,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Recorganizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../documentation.html">Documentation</a></li>
 </ul>
 
         </div>
@@ -77,12 +78,24 @@
 <a class="viewcode-back" href="../../../backend.entities.html#backend.entities.session.Session">[docs]</a>
 <span class="k">class</span> <span class="nc">Session</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A `Session` is defined by </span>
-<span class="sd">        - A `Patient`        </span>
-<span class="sd">        - The department examining the patient</span>
-<span class="sd">        - Date of the session</span>
-<span class="sd">        - (More attributes can be added if necessary.)</span>
+<span class="sd">    :class: `Session` defines a session.</span>
+
+<span class="sd">    :param patient: a `Patient`</span>
+<span class="sd">    :type patient: :class: `Patient`</span>
+
+<span class="sd">    - The date of the session is automatically created.</span>
+<span class="sd">    - More attributes can be added if necessary.</span>
+<span class="sd">    - Example:</span>
+<span class="sd">        - A test run that first creates a `Patient` (using ID and Name) and then a `Session` using today&#39;s date.</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        if __name__ == &#39;__main__&#39;:</span>
+<span class="sd">            patient = Patient(&#39;AX314&#39;, &#39;ABC&#39;)</span>
+<span class="sd">            session = Session(patient)</span>
+<span class="sd">            print(repr(session))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">patient</span><span class="p">:</span> <span class="n">Patient</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">patient</span> <span class="o">=</span> <span class="n">patient</span>
         <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="c1"># add attributes to class based on kwargs</span>

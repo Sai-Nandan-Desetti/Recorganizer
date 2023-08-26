@@ -17,6 +17,8 @@ frontend.menu.about
    :undoc-members:
    :show-inheritance:
 
+-----------
+
 frontend.menu.recordingSession
 -------------------------------------
 
