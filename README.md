@@ -2,7 +2,7 @@
 An app to organize video recordings generated through VLC.
 
 ## Motivation
-This app was built for a very specific purpose. [SSSIHMS, PSN](https://sssihms.org/) needed a way to record snippets of medical scans (video) of patients. So, the VLC media player was suggested to capture the video input and use the `Record` functionality provided by VLC to create video snippets. These snippets were then required to be placed in a particular folder whose path was to be determined by the details of the session and, particularly, the patient.
+This app was built for a very specific purpose. [SSSIHMS, PSN](https://sssihms.org/) needed a way to record snippets of medical scans (video) of patients. So, the VLC media player was suggested to capture the video input and use its `Record` option to create video snippets. These snippets were then required to be placed in a particular folder whose path was to be determined by the details of the session and, particularly, the patient.
 
 This app is designed to collect relevant details and organize the clips created during the session into the intended folder.
 
